@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mulheres Emocionalmente Fortes - Ebook Gratuito de Inteligência Emocional</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💪</text></svg>">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-brain"></i>
+                <span>Psicologia & Bem-Estar</span>
+            </div>
+            <nav class="nav-desktop">
+                <a href="#beneficios">Benefícios</a>
+                <a href="#conteudo">Conteúdo</a>
+                <a href="#especialista">Especialista</a>
+                <a href="#faq">FAQ</a>
+            </nav>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <nav class="nav-mobile" id="navMobile">
+            <a href="#beneficios">Benefícios</a>
+            <a href="#conteudo">Conteúdo</a>
+            <a href="#especialista">Especialista</a>
+            <a href="#faq">FAQ</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="badge">
+                    <i class="fas fa-heart"></i>
+                    <span>EBOOK GRATUITO</span>
+                </div>
+                <h1><span class="highlight">Mulheres Emocionalmente Fortes</span></h1>
+                <h2>Inteligência Emocional Aplicada ao Dia a Dia</h2>
+                <p class="subtitle">Baixe gratuitamente o eBook <strong>Mulheres Emocionalmente Fortes</strong> e aprenda como lidar melhor com suas emoções todos os dias, fortalecer sua autoestima e tomar decisões mais conscientes.</p>
+                
+                <div class="features">
+                    <div class="feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Tomar decisões mais conscientes</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Fortalecer sua autoestima</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Autoconfiança emocional para tomar decisões</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Exercícios práticos para aplicar imediatamente</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Maior controle emocional em situações do dia a dia</span>
+                    </div>
+                </div>
+                
+                <div class="trust-signals">
+                    <div class="trust-item">
+                        <i class="fas fa-lock"></i>
+                        <span>100% seguro e confidencial</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-user-shield"></i>
+                        <span>Baseado em ciência psicológica</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-download"></i>
+                        <span><strong>2.847</strong> mulheres já baixaram</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-form">
+                <div class="form-container">
+                    <div class="form-header">
+                        <h3><i class="fas fa-gift"></i> Receba seu Ebook Agora!</h3>
+                        <p>Preencha abaixo para receber o link de download no seu e-mail</p>
+                    </div>
+                    
+                    <form id="leadForm">
+                        <div class="form-group">
+                            <label for="name">Seu Nome Completo</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="name" placeholder="Digite seu nome" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Seu Melhor E-mail</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="email" placeholder="seu@email.com" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Seu WhatsApp (Opcional)</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-phone"></i>
+                                <input type="tel" id="phone" placeholder="(11) 99999-9999">
+                            </div>
+                            <small class="input-hint">Para receber conteúdos exclusivos</small>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="terms" required checked>
+                            <label for="terms">Concordo em receber comunicações sobre bem-estar emocional e psicologia</label>
+                        </div>
+                        
+                        <button type="submit" class="btn-submit" id="submitBtn">
+                            <span class="btn-text">BAIXAR EBOOK GRATUITAMENTE</span>
+                            <i class="fas fa-arrow-down"></i>
+                        </button>
+                        
+                        <div class="privacy">
+                            <i class="fas fa-lock"></i>
+                            <span>Seus dados estão protegidos. Respeitamos sua privacidade.</span>
+                        </div>
+                    </form>
+                    
+                    <div class="download-stats">
+                        <div class="stat">
+                            <i class="fas fa-star"></i>
+                            <span>Conteúdo <strong>100% prático</strong></span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-clock"></i>
+                            <span>Disponível por tempo limitado</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits" id="beneficios">
+        <div class="container">
+            <h2>O que você vai conquistar com este ebook</h2>
+            <p class="section-subtitle">Transforme sua relação com suas emoções e desenvolva uma inteligência emocional poderosa</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Decisões Conscientes</h3>
+                    <p>Aprenda a tomar decisões alinhadas com seus valores e objetivos, sem ser dominada pelas emoções momentâneas.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Autoestima Fortalecida</h3>
+                    <p>Desenvolva uma relação mais positiva consigo mesma, reconhecendo seu valor e capacidades.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Autoconfiança Emocional</h3>
+                    <p>Ganhe segurança para enfrentar desafios e tomar decisões importantes com clareza e confiança.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>Exercícios Práticos</h3>
+                    <p>Metodologias testadas e exercícios que você pode aplicar imediatamente no seu dia a dia.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Controle Emocional</h3>
+                    <p>Aprenda técnicas para regular suas emoções em situações desafiadoras do cotidiano.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Relacionamentos Saudáveis</h3>
+                    <p>Melhore suas relações através de uma comunicação mais assertiva e empatia desenvolvida.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content" id="conteudo">
+        <div class="container">
+            <div class="content-wrapper">
+                <div class="content-text">
+                    <h2>O que você encontrará no ebook</h2>
+                    <p>Este material foi cuidadosamente elaborado para oferecer ferramentas práticas de inteligência emocional especificamente para mulheres.</p>
+                    
+                    <div class="content-list">
+                        <div class="content-item">
+                            <i class="fas fa-book-open"></i>
+                            <div>
+                                <h4>Capítulo 1: Entendendo suas Emoções</h4>
+                                <p>Compreenda a função das emoções e como elas influenciam seus pensamentos e comportamentos.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="content-item">
+                            <i class="fas fa-chart-line"></i>
+                            <div>
+                                <h4>Capítulo 2: Autoconhecimento Emocional</h4>
+                                <p>Exercícios para mapear seus padrões emocionais e identificar gatilhos.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="content-item">
+                            <i class="fas fa-tools"></i>
+                            <div>
+                                <h4>Capítulo 3: Ferramentas de Regulação Emocional</h4>
+                                <p>Técnicas práticas para gerenciar emoções intensas no momento certo.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="content-item">
+                            <i class="fas fa-comments"></i>
+                            <div>
+                                <h4>Capítulo 4: Comunicação Assertiva</h4>
+                                <p>Como expressar suas necessidades e sentimentos de forma clara e respeitosa.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="content-item">
+                            <i class="fas fa-rocket"></i>
+                            <div>
+                                <h4>Capítulo 5: Plano de Ação Prático</h4>
+                                <p>Um guia passo a passo para implementar mudanças duradouras no seu cotidiano.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-image">
+                    <div class="ebook-mockup">
+                        <div class="ebook-cover">
+                            <div class="ebook-title">
+                                <h3>Mulheres Emocionalmente Fortes</h3>
+                                <p>Inteligência Emocional Aplicada ao Dia a Dia</p>
+                            </div>
+                            <div class="ebook-author">
+                                <p>Por um Especialista em Psicologia</p>
+                            </div>
+                        </div>
+                        <div class="ebook-pages">
+                            <div class="page"></div>
+                            <div class="page"></div>
+                            <div class="page"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expert Section -->
+    <section class="expert" id="especialista">
+        <div class="container">
+            <h2>Conheça o Especialista</h2>
+            <p class="section-subtitle">Profissional qualificado com experiência em inteligência emocional e bem-estar psicológico</p>
+            
+            <div class="expert-wrapper">
+                <div class="expert-image">
+                    <!-- Espaço para a foto do psicólogo -->
+                    <div class="placeholder-photo">
+                      <img src="image\leandro_1.jpeg" alt="Nome do Psicólogo">
+  
+                    </div>
+                    <!-- Para usar uma imagem real, substitua o div acima por:
+                    -->
+                </div>
+                
+                <div class="expert-info">
+                    <h3>Psicólogo Leando Veloso</h3>
+                    <p class="expert-title">Especialista em Inteligência Emocional e Bem-Estar Feminino</p>
+                    
+                    <div class="expert-details">
+                        <p>Com mais de 10 anos de experiência em psicologia clínica, especializado em ajudar mulheres a desenvolverem resiliência emocional, autoestima e autonomia psicológica.</p>
+                        
+                        <div class="expert-credentials">
+                            <div class="credential">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Formação em Psicologia pela [Universidade]</span>
+                            </div>
+                            <div class="credential">
+                                <i class="fas fa-certificate"></i>
+                                <span>Especialização em Terapia Cognitivo-Comportamental</span>
+                            </div>
+                            <div class="credential">
+                                <i class="fas fa-briefcase"></i>
+                                <span> + 10 anos de experiência clínica</span>
+                            </div>
+                            <div class="credential">
+                                <i class="fas fa-users"></i>
+                                <span>Atendeu mais de 500 mulheres</span>
+                            </div>
+                        </div>
+                        
+                        <blockquote class="expert-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <p>A inteligência emocional é uma habilidade que pode ser desenvolvida por qualquer pessoa. Meu objetivo é fornecer ferramentas práticas para que as mulheres possam viver com mais equilíbrio e autenticidade.</p>
+                            <cite>— Leandro Veloso, Psicólogo</cite>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="depoimentos">
+        <div class="container">
+            <h2>O que dizem as mulheres que já aplicaram estas técnicas</h2>
+            <p class="section-subtitle">Depoimentos reais de transformação emocional</p>
+            
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Depois de aplicar as técnicas do ebook, consegui lidar muito melhor com o estresse no trabalho. Minhas decisões são mais conscientes e me sinto mais confiante."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Camila R.</h4>
+                            <span>Gerente de Projetos, 32 anos</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Os exercícios práticos me ajudaram a fortalecer minha autoestima. Finalmente entendi que minhas emoções são minhas aliadas, não inimigas."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Ana L.</h4>
+                            <span>Empreendedora, 28 anos</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Como mãe e profissional, sempre lutei para equilibrar todas as demandas. Este ebook me deu ferramentas para cuidar da minha saúde emocional primeiro."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Roberta S.</h4>
+                            <span>Mãe e Designer, 35 anos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2>Perguntas Frequentes</h2>
+            <p class="section-subtitle">Tire suas dúvidas sobre o ebook e seu conteúdo</p>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>O ebook é realmente gratuito?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim, o ebook é 100% gratuito. Acreditamos que o conhecimento sobre inteligência emocional deve ser acessível a todas as mulheres.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Como recebo o ebook após preencher o formulário?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Imediatamente após o cadastro, você receberá um e-mail com o link para download do ebook em PDF. Verifique sua caixa de entrada e, se não encontrar, olhe também na pasta de spam/promocial.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Preciso ter conhecimento prévio em psicologia?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Não, o ebook foi escrito em linguagem acessível, sem jargões técnicos complexos. É dirigido a qualquer mulher que queira desenvolver sua inteligência emocional.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Posso compartilhar o ebook com outras pessoas?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim, você pode compartilhar o link desta página para que outras mulheres também possam baixar o ebook gratuitamente.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Este ebook substitui terapia psicológica?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Não. O ebook é um material educativo com ferramentas de autoajuda baseadas em psicologia, mas não substitui o acompanhamento profissional individualizado. Se você está passando por dificuldades emocionais significativas, recomendamos buscar ajuda de um psicólogo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Invista no seu desenvolvimento emocional</h2>
+                <p>Junte-se a milhares de mulheres que já estão transformando sua relação com as emoções. Baixe agora o ebook gratuito e comece sua jornada rumo a uma vida emocionalmente mais equilibrada e satisfatória.</p>
+                
+                <div class="cta-countdown">
+                    <div class="countdown-label">
+                        <i class="fas fa-clock"></i>
+                        <span>Oferta gratuita por tempo limitado:</span>
+                    </div>
+                    <div class="countdown-timer" id="countdown">
+                        <div class="countdown-item">
+                            <span class="countdown-value" id="hours">24</span>
+                            <span class="countdown-label-small">Horas</span>
+                        </div>
+                        <div class="countdown-separator">:</div>
+                        <div class="countdown-item">
+                            <span class="countdown-value" id="minutes">59</span>
+                            <span class="countdown-label-small">Minutos</span>
+                        </div>
+                        <div class="countdown-separator">:</div>
+                        <div class="countdown-item">
+                            <span class="countdown-value" id="seconds">59</span>
+                            <span class="countdown-label-small">Segundos</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="#leadForm" class="btn-cta">
+                    <i class="fas fa-download"></i>
+                    <span>BAIXAR EBOOK GRATUITAMENTE</span>
+                </a>
+                
+                <div class="cta-guarantee">
+                    <i class="fas fa-shield-alt"></i>
+                    <span><strong>Garantia:</strong> 100% gratuito • Conteúdo baseado em ciência • Sem spam</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-brain"></i>
+                    <span>Psicologia & Bem-Estar</span>
+                </div>
+                <p>© 2023 Todos os direitos reservados. Este material é educativo e não substitui acompanhamento psicológico profissional.</p>
+                <p>Se você está em crise ou precisa de ajuda imediata, procure um psicólogo ou entre em contato com o CVV (188).</p>
+                <div class="footer-links">
+                    <a href="#">Política de Privacidade</a>
+                    <a href="#">Termos de Uso</a>
+                    <a href="mailto:contato@exemplo.com">Contato</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal">
+            <div class="modal-header">
+                <i class="fas fa-check-circle"></i>
+                <h3>Parabéns! Ebook Enviado</h3>
+            </div>
+            <div class="modal-body">
+                <p>Enviamos o link para download do ebook no seu e-mail. Verifique sua caixa de entrada em instantes!</p>
+                <p><strong>Dica:</strong> Comece pelo capítulo sobre autoconhecimento emocional - é a base para todas as outras transformações.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-modal" id="closeModal">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

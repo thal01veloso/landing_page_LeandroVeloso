@@ -1,4 +1,4 @@
-// script.js - Landing Page para Psicólogo (FAQ Corrigido)
+// script.js - Landing Page para Psicólogo (Formulário com WhatsApp obrigatório)
 document.addEventListener('DOMContentLoaded', function() {
     
     // Elementos principais
@@ -16,16 +16,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // Estado do formulário
     let formSubmitted = false;
     
-    // Máscara para telefone
+    // Máscara para telefone (WhatsApp)
     if (phoneInput) {
         phoneInput.addEventListener('input', function(e) {
             let value = e.target.value.replace(/\D/g, '');
             
+            // Limita a 11 dígitos (DDD + 9 dígitos)
             if (value.length > 11) {
                 value = value.substring(0, 11);
             }
             
-            if (value.length > 10) {
+            // Aplica a máscara: (XX) XXXXX-XXXX
+            if (value.length === 11) {
                 value = value.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1) $2-$3');
             } else if (value.length > 6) {
                 value = value.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, '($1) $2-$3');
@@ -46,43 +48,40 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (formSubmitted) return;
             
-            // Validação básica
+            // Validação dos campos obrigatórios
             const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
             const phone = phoneInput ? phoneInput.value.trim() : '';
             const terms = document.getElementById('terms').checked;
             
-            // Validações
+            // Validação do nome (obrigatório)
             if (!name || name.length < 3) {
-                showError('Por favor, insira um nome válido (mínimo 3 caracteres)');
+                showError('Por favor, insira seu nome completo (mínimo 3 caracteres)');
                 return;
             }
             
-            if (!email || !isValidEmail(email)) {
-                showError('Por favor, insira um e-mail válido');
+            // Validação do WhatsApp (obrigatório e com 11 dígitos)
+            const phoneDigits = phone.replace(/\D/g, '');
+            if (!phone || phoneDigits.length !== 11) {
+                showError('Por favor, insira um número de WhatsApp válido com DDD + 9 dígitos');
                 return;
             }
             
-            if (phone && phone.replace(/\D/g, '').length < 10 && phone.replace(/\D/g, '').length > 0) {
-                showError('Por favor, insira um número de WhatsApp válido ou deixe em branco');
-                return;
-            }
-            
+            // Validação dos termos (obrigatório)
             if (!terms) {
-                showError('Você precisa concordar com os termos para receber o ebook');
+                showError('Você precisa concordar em receber comunicações para baixar o ebook');
                 return;
             }
             
             // Desabilita botão e mostra loading
             submitBtn.disabled = true;
             const originalBtnContent = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processando seu pedido...';
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Preparando seu download...';
             
             // Salva os dados localmente
             const leadData = {
                 name: name,
-                email: email,
-                phone: phone || 'Não informado',
+                phone: phone,
+                phoneDigits: phoneDigits,
                 timestamp: new Date().toISOString(),
                 pageUrl: window.location.href
             };
@@ -90,17 +89,22 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.setItem('leadData', JSON.stringify(leadData));
             
             try {
-                // Simula processamento
-                await new Promise(resolve => setTimeout(resolve, 1500));
+                // Simula processamento de download
+                await new Promise(resolve => setTimeout(resolve, 2000));
                 
-                // Mostra modal de sucesso
-                showSuccessModal();
+                // Mostra modal de sucesso com mensagem personalizada
+                showSuccessModal(name, phone);
                 
                 formSubmitted = true;
                 
+                // Simula o download do ebook após 1 segundo
+                setTimeout(() => {
+                    simulateEbookDownload();
+                }, 1000);
+                
             } catch (error) {
                 console.error('Erro no processo:', error);
-                showError('Ocorreu um erro ao processar seu pedido. Por favor, tente novamente.');
+                showError('Ocorreu um erro ao processar seu download. Por favor, tente novamente.');
             } finally {
                 // Restaura botão após 3 segundos
                 setTimeout(() => {
@@ -109,6 +113,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 }, 3000);
             }
         });
+    }
+    
+    // Função para simular download do ebook
+    function simulateEbookDownload() {
+        // Cria um link de download simulado
+        const downloadLink = document.createElement('a');
+        downloadLink.href = 'data:application/pdf;base64,' + btoa('Ebook Mulheres Emocionalmente Fortes - PDF Simulado');
+        downloadLink.download = 'Mulheres-Emocionalmente-Fortes.pdf';
+        downloadLink.style.display = 'none';
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
     }
     
     // Função para mostrar erro
@@ -131,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
             border: 1px solid var(--danger-color);
             padding: 12px 15px;
             margin: 15px 0;
-            border-radius: var(--border-radius);
+            border-radius: var(--radius);
             display: flex;
             align-items: center;
             gap: 10px;
@@ -153,22 +169,28 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 5000);
     }
     
-    // Validação de email
-    function isValidEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    }
-    
-    // Modal de sucesso
-    function showSuccessModal() {
+    // Modal de sucesso personalizado
+    function showSuccessModal(name, phone) {
+        // Formata o telefone para exibição
+        const formattedPhone = phone.replace(/\D/g, '').replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+        
         // Atualiza o conteúdo do modal
         const modalBody = document.querySelector('.modal-body');
         if (modalBody) {
             modalBody.innerHTML = `
-                <p>Parabéns! Seu pedido foi processado com sucesso.</p>
-                <p>Em instantes você receberá o ebook no seu e-mail.</p>
-                <div style="margin-top: 20px; padding: 15px; background: #f0f9ff; border-radius: 8px;">
-                    <p style="font-size: 0.9rem; margin: 0;"><i class="fas fa-lightbulb"></i> <strong>Dica:</strong> Comece pelo capítulo sobre autoconhecimento emocional.</p>
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <i class="fas fa-check-circle" style="font-size: 3rem; color: var(--success-color);"></i>
+                </div>
+                <p><strong>Parabéns, ${name}!</strong> Seu ebook está sendo baixado...</p>
+                <p>Em instantes você receberá o arquivo "Mulheres Emocionalmente Fortes.pdf"</p>
+                
+                <div style="margin: 25px 0; padding: 15px; background: #f0f9ff; border-radius: 8px; border-left: 4px solid var(--primary-color);">
+                    <p style="font-size: 0.9rem; margin: 0 0 10px 0;"><i class="fas fa-mobile-alt"></i> <strong>WhatsApp registrado:</strong> ${formattedPhone}</p>
+                    <p style="font-size: 0.85rem; margin: 0;"><i class="fas fa-info-circle"></i> Você também receberá conteúdos exclusivos por aqui</p>
+                </div>
+                
+                <div style="margin-top: 20px; padding: 15px; background: var(--gradient-light); border-radius: 8px;">
+                    <p style="font-size: 0.9rem; margin: 0;"><i class="fas fa-lightbulb"></i> <strong>Dica inicial:</strong> Comece pelo capítulo 3 sobre autoconhecimento emocional</p>
                 </div>
             `;
         }
@@ -222,7 +244,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // CORREÇÃO DA SEÇÃO FAQ
+    // FAQ - Funcionalidade
     const faqQuestions = document.querySelectorAll('.faq-question');
     
     if (faqQuestions.length > 0) {
@@ -247,9 +269,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         });
-        
-        // Abre a primeira pergunta por padrão (opcional)
-        // faqQuestions[0].click();
     }
     
     // Countdown timer
@@ -291,9 +310,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Se o tempo acabou, mostra uma mensagem
         if (timeLeft < 0) {
             clearInterval(countdownInterval);
-            const countdownElement = document.getElementById('countdown');
+            const countdownElement = document.querySelector('.cta-countdown');
             if (countdownElement) {
-                countdownElement.innerHTML = '<div style="color: white; font-size: 1.2rem;">Últimas horas da oferta!</div>';
+                countdownElement.innerHTML = '<div style="color: white; font-size: 1.2rem; padding: 20px;">Últimas horas da oferta!</div>';
             }
         }
     }
@@ -346,7 +365,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     behavior: 'smooth'
                 });
                 
-                // Dá foco no primeiro campo
+                // Dá foco no campo de nome
                 setTimeout(() => {
                     const nameInput = document.getElementById('name');
                     if (nameInput) nameInput.focus();
@@ -383,13 +402,17 @@ document.addEventListener('DOMContentLoaded', function() {
         try {
             const data = JSON.parse(savedLeadData);
             const nameInput = document.getElementById('name');
-            const emailInput = document.getElementById('email');
             const phoneInput = document.getElementById('phone');
             
             if (nameInput) nameInput.value = data.name || '';
-            if (emailInput) emailInput.value = data.email || '';
-            if (phoneInput && data.phone && data.phone !== 'Não informado') {
+            if (phoneInput && data.phone) {
                 phoneInput.value = data.phone;
+            }
+            
+            // Se já tem dados, pode marcar o checkbox por padrão
+            const termsCheckbox = document.getElementById('terms');
+            if (termsCheckbox) {
+                termsCheckbox.checked = true;
             }
             
         } catch (error) {
@@ -431,5 +454,5 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(style);
     
-    console.log('Landing Page "Mulheres Emocionalmente Fortes" inicializada com sucesso!');
+    console.log('Landing Page "Mulheres Emocionalmente Fortes" inicializada com WhatsApp obrigatório!');
 });
